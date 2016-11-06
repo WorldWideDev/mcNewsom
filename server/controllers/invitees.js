@@ -3,19 +3,40 @@ var mongoose = require('mongoose'),
 
 module.exports = (function(){
     return {
-        create: function(){
-            var newInvitee = new Invitee({
-                firstName: 'Billy Joe',
-                lastName: 'Hobart',
-                isSolo: false,
-                plusOne.firstName: 'Dolly',
-                plusOne.lastName: 'Parton'
-            })
-            newInvitee.save(function(err){
+        index: function(req,res){
+            Invitee.find({}, function(err, invitees){
                 if(err){
-                    console.log('somethings amiss');
+                    res.json(err);
                 }else{
-                    console.log('you added an Invitee');
+                    res.json(invitees);
+                }
+            });
+        },
+        create: function(req,res){
+            Invitee.findOne({firstName: req.body.firstName}, function(err, invitee){
+                if(err){
+                    res.json(err);
+                }else{
+                    if(invitee){
+                        console.log('found existing invitee');
+                        res.json(invitee);
+                    }else{
+                        var newInvitee = new Invitee({
+                            firstName: req.body.firstName,
+                            lastName: req.body.lastName,
+                            hasPlus: req.body.hasPlus,
+                            firstNamePlus: req.body.firstNamePlus,
+                            lastNamePluse: req.body.lastNamePlus,
+                        });
+                        newInvitee.save(function(err){
+                            console.log(newInvitee);
+                            if(err){
+                                console.log('somethings amiss');
+                            }else{
+                                res.redirect('/invitees/index')
+                            }
+                        })
+                    }
                 }
             })
         }

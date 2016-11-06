@@ -3,7 +3,10 @@ var mongoose = require('mongoose'),
     invitees = require('../controllers/invitees.js');
 
 module.exports = function(app){
-    app.get('/invitees/create', function(req,res){
-        invitees.create();
+    app.get('/invitees/index', function(req,res){
+        invitees.index(req, res);
+    })
+    app.post('/invitees/create', function(req,res){
+        invitees.create(req, res);
     })
 }

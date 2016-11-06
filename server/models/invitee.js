@@ -9,20 +9,18 @@ var InviteeSchema = new Schema({
     lastName: {
         type: String,
         required: true
-    }
-    isSolo: {
-        type: Boolean,
-        default: true
     },
-    plusOne:{
-        firstName: {
-            type: String,
-            required: false
-        },
-        lastName: {
-            type: String,
-            required: false
-        }
+    hasPlus: {
+        type: Boolean,
+        default: false
+    },
+    firstNamePlus: {
+        type: String,
+        required: false
+    },
+    lastNamePlus: {
+        type: String,
+        required: false
     }
 });
 
