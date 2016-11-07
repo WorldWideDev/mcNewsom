@@ -21,6 +21,10 @@ var InviteeSchema = new Schema({
     lastNamePlus: {
         type: String,
         required: false
+    },
+    hasRsvp: {
+        type: Boolean,
+        default: false
     }
 });
 

@@ -1,9 +1,11 @@
 var mongoose = require('mongoose'),
+    createThem = require('../../dev/createInvitees.js')
     Invitee = mongoose.model('Invitee');
 
 module.exports = (function(){
     return {
         index: function(req,res){
+
             Invitee.find({}, function(err, invitees){
                 if(err){
                     res.json(err);
@@ -11,6 +13,9 @@ module.exports = (function(){
                     res.json(invitees);
                 }
             });
+        },
+        addPeople: function(req,res){
+            createThem();
         },
         create: function(req,res){
             Invitee.findOne({firstName: req.body.firstName}, function(err, invitee){
@@ -26,7 +31,7 @@ module.exports = (function(){
                             lastName: req.body.lastName,
                             hasPlus: req.body.hasPlus,
                             firstNamePlus: req.body.firstNamePlus,
-                            lastNamePluse: req.body.lastNamePlus,
+                            lastNamePlus: req.body.lastNamePlus,
                         });
                         newInvitee.save(function(err){
                             console.log(newInvitee);
@@ -36,6 +41,20 @@ module.exports = (function(){
                                 res.redirect('/invitees/index')
                             }
                         })
+                    }
+                }
+            })
+        },
+        checkName: function(req, res){
+            console.log(req.body);
+            Invitee.findOne({firstName: req.body.firstName, lastName: req.body.lastName}, function(err, person){
+                if(err){
+                    res.json(err);
+                }else{
+                    if(person){
+                        res.json(person);
+                    }else{
+                        res.json({"Error": "No one here with that name!"})
                     }
                 }
             })
