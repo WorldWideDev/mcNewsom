@@ -1,18 +1,18 @@
-mcNewsom.controller('MainController', function(MainFactory, $location, $timeout){
+mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout){
     self = this;
     self.results = [];
     function getFullName(item, idx){
         var fullName = [item.firstName, item.lastName].join(" ");
         return fullName
     }
-    MainFactory.index(function(query){
+    RsvpFactory.index(function(query){
         self.invitees = query;
         self.results = self.invitees.map(getFullName);
     })
     self.noResults = false;
     self.candidate = '';
     self.createInvitee = function(){
-        MainFactory.create(self.newInvitee, function(query){
+        RsvpFactory.create(self.newInvitee, function(query){
             self.invitees = query;
             self.newInvitee = '';
             self.isChecked = false;
@@ -29,13 +29,32 @@ mcNewsom.controller('MainController', function(MainFactory, $location, $timeout)
                 firstName: arr[0],
                 lastName: arr[1]
             }
-        MainFactory.checkName(thisInv, function(query){
+        console.log(arr, thisInv);
+        // if multiple names are found, split in to firstName as first array item, and rest of array as lastName
+        // this doesn't work for multiple first names, but i know the data so its cool!
+        if(arr.length > 2){
+            var str = ''
+            for (var i = 1; i < arr.length; i++) {
+                i === 1 ? str += arr[i] : str += ' ' + arr[i];
+            }
+            console.log(str);
+            thisInv = {
+                firstName: arr[0],
+                lastName: str
+            }
+        }else{
+            thisInv = {
+                firstName: arr[0],
+                lastName: arr[1]
+            }
+        }
+        RsvpFactory.checkName(thisInv, function(query){
             self.thisPerson = query;
             console.log(self.thisPerson, 'is queried person');
         });
     }
     self.toRSVP = function(){
-        MainFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
+        RsvpFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
             console.log(query, 'is rsvp query');
             if(query.Error){
                 self.rsvpErr = query;
@@ -48,7 +67,7 @@ mcNewsom.controller('MainController', function(MainFactory, $location, $timeout)
 
     }
     self.addPeople = function(){
-        MainFactory.addPeople();
+        RsvpFactory.addPeople();
     }
 
 })

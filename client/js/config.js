@@ -4,17 +4,22 @@ mcNewsom.config(function($routeProvider){
     $routeProvider
     .when('/home', {
         templateUrl: 'partials/home.html',
-        controller: 'MainController',
+        controller: 'RsvpController',
         controllerAs: 'MC'
     })
     .when('/rsvp', {
         templateUrl: 'partials/rsvp.html',
-        controller: 'MainController',
+        controller: 'RsvpController',
         controllerAs: 'MC'
+    })
+    .when('/admin', {
+        templateUrl: 'partials/admin.html',
+        controller: 'AdminController',
+        controllerAs: 'AC'
     })
     .otherwise({
         templateUrl: 'partials/home.html',
-        controller: 'MainController',
+        controller: 'RsvpController',
         controllerAs: 'MC'
     })
 })

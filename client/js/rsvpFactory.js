@@ -1,4 +1,4 @@
-mcNewsom.factory('MainFactory', function($http){
+mcNewsom.factory('RsvpFactory', function($http){
     var factory = {};
     factory.index = function(callback){
         $http.get('invitees/index').success(function(meow){
@@ -16,6 +16,12 @@ mcNewsom.factory('MainFactory', function($http){
             callback(meow);
         })
     }
+    // factory.checkFirstName = function(firstName, callback){
+    //     console.log(typeof(firstName), 'is factory input');
+    //     $http.post('invitees/checkFirstName', firstName).success(function(meow){
+    //         callback(meow);
+    //     })
+    // }
     factory.toRSVP = function(id, rsvp, callback){
         console.log(id, rsvp, 'is factory data');
         $http.post('responses/create/' + id, rsvp).success(function(meow){

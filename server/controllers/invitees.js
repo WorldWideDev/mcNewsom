@@ -45,6 +45,15 @@ module.exports = (function(){
                 }
             })
         },
+        noResponse: function(req, res){
+            Invitee.find({hasRsvp: false}, function(err, noReponses){
+                if(err){
+                    res.json(err);
+                }else{
+                    res.json(noReponses);
+                }
+            })
+        },
         checkName: function(req, res){
             console.log(req.body);
             Invitee.findOne({firstName: req.body.firstName, lastName: req.body.lastName}, function(err, person){
@@ -58,6 +67,20 @@ module.exports = (function(){
                     }
                 }
             })
-        }
+        },
+        // checkFirstName: function(req,res){
+        //     console.log(req.body);
+        //     Invitee.findOne({firstName: req.body.firstName}, function(err, person){
+        //         if(err){
+        //             res.json(err)
+        //         }else{
+        //             if(person){
+        //                 res.json(person)
+        //             }else{
+        //                 res.json({"Error": false})
+        //             }
+        //         }
+        //     })
+        // }
     }
 })()

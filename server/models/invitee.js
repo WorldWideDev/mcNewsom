@@ -2,6 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var InviteeSchema = new Schema({
+    _response: {
+        type: Schema.Types.ObjectId,
+        ref: "Response"
+    },
     firstName: {
         type: String,
         required: true

@@ -14,8 +14,15 @@ module.exports = function(app){
     app.post('/invitees/checkName', function(req,res){
         invitees.checkName(req,res);
     })
+    // app.post('/invitees/checkFirstName', function(req,res){
+    //     console.log('in routes');
+    //     invitees.checkFirstName(req,res);
+    // })
     app.get('/invitees/addPeople', function(req,res){
         invitees.addPeople(req,res);
+    })
+    app.get('/invitees/noResponse', function(req,res){
+        invitees.noResponse(req,res);
     })
     app.get('/responses/index', function(req,res){
         responses.index(req,res);

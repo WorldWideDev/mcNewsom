@@ -1,0 +1,43 @@
+<div class="admin-table-header">
+    <h1 class="inline">RSVP List</h1>
+    <input class="pull-right search-field" ng-model="searchTextA" type="text" placeholder="Filter List">
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Plus One</th>
+            <th>Is Coming</th>
+            <th>Plus One Is Coming</th>
+            <th>Date Responded</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='r in AC.responses | filter:searchTextA'>
+            <td>{{r._invitee.firstName}} {{r._invitee.lastName}}</td>
+            <td>{{r._invitee.hasPlus ? r._invitee.firstNamePlus + " " + r._invitee.lastNamePlus : ""}}</td>
+            <td>{{r.isComing}}</td>
+            <td>{{r.isPlusComing}}</td>
+            <td>{{r.createdAt | date : "MM/dd/yyyy 'at' h:mma" }}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="admin-table-header">
+    <h1 class="inline">Yet To Respond</h1>
+    <input class="pull-right search-field" ng-model="searchTextB" type="text" placeholder="Filter List">
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Plus One</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='n in AC.noResponse | filter:searchTextB'>
+            <td>{{n.firstName}} {{n.lastName}}</td>
+            <td>{{n.hasPlus ? n.firstNamePlus + " " + n.lastNamePlus : ""}}</td>
+        </tr>
+    </tbody>
+</table>

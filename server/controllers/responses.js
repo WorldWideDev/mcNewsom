@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 module.exports = (function(){
     return {
         index: function(req,res){
-            Response.find({}, function(err, responses){
+            Response.find({}).populate('_invitee').exec(function(err, responses){
                 if(err){
                     res.json(err);
                 }else{
@@ -23,13 +23,14 @@ module.exports = (function(){
                     if(invitee.hasRsvp){
                         res.json({"Error": "You have already RSVP'd!"})
                     }else{
-                        invitee.hasRsvp = true;
-                        invitee.save();
                         var newResponse = new Response({
                             _invitee: invitee._id,
                             isComing: req.body.isComing === 'yes'? true:false,
                             isPlusComing: req.body.isPlusComing === 'yes'? true:false
                         })
+                        invitee.hasRsvp = true;
+                        invitee._response = newResponse._id;
+                        invitee.save();
                         newResponse.save(function(err){
                             if(err){
                                 res.json(err);
