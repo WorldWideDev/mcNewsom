@@ -56,12 +56,34 @@ module.exports = (function(){
         },
         checkName: function(req, res){
             console.log(req.body);
+            var guestStatus = {};
             Invitee.findOne({firstName: req.body.firstName, lastName: req.body.lastName}, function(err, person){
                 if(err){
                     res.json(err);
                 }else{
                     if(person){
-                        res.json(person);
+
+                        // check to see if this person has plus one that has already rsvpd
+                        if(person.hasPlus){
+                            Invitee.findOne({firstName: person.firstNamePlus, lastName: person.lastNamePlus}, function(err, guest){
+                                if(err)
+                                    res.json(err)
+                                else{
+                                    console.log('bout to return some json');
+                                    res.json({
+                                        "person": person,
+                                        "guestStatus": guest.hasRsvp
+                                    });
+                                }
+                            })
+                        } else {
+                            console.log('bout to return some json');
+                            res.json({
+                                "person": person,
+                                "guestStatus": "no guest"
+                            });
+                        }
+
                     }else{
                         res.json({"Error": "No one here with that name!"})
                     }

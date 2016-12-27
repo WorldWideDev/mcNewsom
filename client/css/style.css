@@ -7,8 +7,12 @@ body{
     .contents{
         margin-top: 30px;
     }
-    .contents > *{
+    .contents > :not(span, input){
         color: rgb(158, 255, 0);
+    }
+    .important{
+        font-weight: bold;
+        color: rgb(102, 58, 175);
     }
 
 /*++++++++++++++++++++++++++++
@@ -91,7 +95,7 @@ nav a {
 /*++++++++++++++++++++++++++++
 ========  HOME PAGE =======
 ++++++++++++++++++++++++++++*/
-.home > .container > .contents > .jumbotron *{
+.home > .container > .contents > .jumbotron * {
     color: rgb(70, 70, 70);
 }
 
@@ -124,6 +128,9 @@ nav a {
 .rsvp-jumbo{
     background-color: #868686;
 }
+    .rsvp-jumbo h1{
+        margin: 0;
+    }
 
 
 
@@ -207,6 +214,13 @@ nav a {
 /*++++++++++++++++++++++++++++
 ======== ADMIN PAGE =========
 ++++++++++++++++++++++++++++*/
+.admin > *{
+    color: rgb(91, 254, 10);
+}
+    .admin input{
+        color: blackrgb(78, 78, 78);
+    }
+
 .admin-table-header{
     position: relative;
 }
@@ -227,7 +241,7 @@ nav a {
 
     #welcome-text{ top: 10%;}
     #welcome-text * {font-size: 1em;}
-    .rsvp-input-wrap{ width: 500px;}
+    .rsvp-input-wrap{ min-width: 100px;}
 
 }
 
@@ -235,6 +249,7 @@ nav a {
 
     #welcome-text{ top: 15%;}
     #welcome-text * {font-size: 2em;}
+    .rsvp-input-wrap{ min-width: 300px;}
 
 }
 
@@ -242,6 +257,7 @@ nav a {
 
     #welcome-text{ top: 36%;}
     #welcome-text * {font-size: 3em;}
+    .rsvp-input-wrap{ width: 400px;}
 
 }
 

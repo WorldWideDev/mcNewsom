@@ -2,7 +2,11 @@
 <div class="container">
     <div class="contents">
         <div class="jumbotron rsvp-jumbo">
-            <div class="centered"><h1>RSVP YALL</h1></div>
+            <div class="centered">
+                <h1>RSVP</h1>
+                <h2>Type your name, then hit enter</h2>
+            </div>
+            <hr>
             <div ng-if='MC.thisPerson.Error || MC.rsvpErr.Error' class="alert alert-danger">
                 {{MC.thisPerson.Error ? MC.thisPerson.Error : MC.rsvpErr.Error}}
             </div>
@@ -27,7 +31,7 @@
                         <input type="radio" name="isComing" ng-model='MC.rsvp.isComing' value="no"> No
                     </label>
                 </div>
-                <div ng-if="MC.thisPerson.hasPlus && MC.rsvp.isComing === 'yes'" class="">
+                <div ng-if="MC.thisPerson.hasPlus && !MC.guestStatus" class="">
                     <h4 ng-if='MC.thisPerson.hasPlus'>
                         Will {{MC.thisPerson.firstNamePlus}} {{MC.thisPerson.lastNamePlus}} be attending?
                     </h4>
@@ -38,7 +42,11 @@
                         <label class="checkbox-inline">
                             <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="no"> No
                         </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="unsure"> Not Sure
+                        </label>
                     </div>
+                    <p ng-if="MC.thisPerson.hasPlus && MC.rsvp.isPlusComing == 'unsure'">That's ok, just make sure they RSVP soon!</p>
 
                 </div>
                 <!-- Button trigger modal -->
@@ -74,8 +82,8 @@
                 <li><a href>no results</a></li>
               </ul>
             </span> -->
-            <!-- <button type="button" name="button" ng-click='MC.addPeople()'>ADD PEOPLE</button> -->
+            <button type="button" name="button" ng-click='MC.addPeople()'>ADD PEOPLE</button>
         </div>
+        {{MC.rsvp}}
     </div>
-
 </div>

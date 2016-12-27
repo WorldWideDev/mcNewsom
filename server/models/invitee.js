@@ -29,6 +29,10 @@ var InviteeSchema = new Schema({
     hasRsvp: {
         type: Boolean,
         default: false
+    },
+    plusHasRsvp: {
+        type: Boolean,
+        default: false
     }
 });
 

@@ -49,21 +49,31 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
             }
         }
         RsvpFactory.checkName(thisInv, function(query){
-            self.thisPerson = query;
+            console.log(query);
+            self.thisPerson = query.person;
+            self.guestStatus = query.guestStatus;
             console.log(self.thisPerson, 'is queried person');
         });
     }
     self.toRSVP = function(){
-        RsvpFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
-            console.log(query, 'is rsvp query');
-            if(query.Error){
-                self.rsvpErr = query;
-            }else{
-                $timeout(function(){
-                    $location.url('/home')
-                },200)
-            }
-        })
+
+        // validations
+        if(!self.rsvp){
+            self.rsvpErr = {"Error": "Please fill out all fields"};
+        } else if ((self.thisPerson.hasPlus && !self.rsvp.isPlusComing) || !self.rsvp.isComing) {
+            self.rsvpErr = {"Error": "Please fill out all fields"};
+        } else {
+            RsvpFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
+                console.log(query, 'is rsvp query');
+                if(query.Error){
+                    self.rsvpErr = query;
+                }else{
+                    $timeout(function(){
+                        $location.url('/home')
+                    },200)
+                }
+            })
+        }
 
     }
     self.addPeople = function(){
