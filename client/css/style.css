@@ -1,23 +1,39 @@
 body{
-    padding-top: 70px;
+    padding-top: 60px;
+    font-family: monospace;
+    background-color: rgb(55, 62, 62);
+    /*color: rgb(110, 184, 37);*/
 }
+    .contents{
+        margin-top: 30px;
+    }
+    .contents > *{
+        color: rgb(158, 255, 0);
+    }
 
 /*++++++++++++++++++++++++++++
 ======== NAV BAR =============
 ++++++++++++++++++++++++++++*/
 
 .my-nav{
-    background-color: rgb(171, 191, 179);
+    background-color: rgb(181, 137, 201);
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-brand {
+    color: rgb(217, 217, 217);
+    font-size: 160%;
 }
 nav a {
-    font-family: 'Raleway', sans-serif;
     font-weight: bolder;
+    font-size: 110%;
     margin: 5px 5px;
 }
 
-.cl-effect-21 a {
+/*.cl-effect-21 a {*/
 	/*padding: 10px;*/
-	color: #237546;
+	/*color: #237546;
 	font-weight: 700;
 	text-shadow: none;
 	-webkit-transition: color 0.3s;
@@ -69,7 +85,124 @@ nav a {
 	-webkit-transform: translateY(0px);
 	-moz-transform: translateY(0px);
 	transform: translateY(0px);
+}*/
+
+
+/*++++++++++++++++++++++++++++
+========  HOME PAGE =======
+++++++++++++++++++++++++++++*/
+.home > .container > .contents > .jumbotron *{
+    color: rgb(70, 70, 70);
 }
+
+#banner-wrapper{
+    width: 100%;
+    min-height: 450px;
+    position: relative;
+}
+    #banner-img{
+        width: 100%;
+        height: 100%;
+    }
+    #welcome-text{
+        position:absolute;
+        left:75%;
+    }
+        #welcome-text *{
+            font-weight:bold;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+.centered{
+    text-align: center;
+}
+
+/*++++++++++++++++++++++++++++
+========  RSVP PAGE =======
+++++++++++++++++++++++++++++*/
+
+.rsvp-jumbo{
+    background-color: #868686;
+}
+
+
+
+/*++++++++++++++++++++++++++++
+======== REGISTRY PAGE =======
+++++++++++++++++++++++++++++*/
+.reg-div{
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    text-align: center;
+    background-size: cover;
+}
+.reg-loc-title{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(221, 221, 221);
+    margin-top: 100px;
+}
+    .reg-div:hover > .reg-link-overlay{
+        width:100%;
+        height:100%;
+        background-color:#000;
+        opacity:0.5;
+        display: inline-block;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+    .reg-link-overlay{
+        width:100%;
+        height:100%;
+        background-color:#000;
+        opacity: 0;
+        display: inline-block;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+    .reg-div:hover > .reg-loc-title{
+        display: inline;
+        display: inline-block;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+.reg-link{
+    text-align: center;
+    width: inherit;
+    height: inherit;
+    display: inherit;
+}
+    #amazon{
+        background: url('../img/amazon.jpg');
+    }
+    #surlatable{
+        background: url('../img/table.jpg');
+
+    }
+    .reg-link a{
+        text-decoration: none;
+    }
+
+.image_test{
+    background: url('../img/targit.jpg');
+    width: 250px;
+    height: 250px;
+    position: relative;
+    display: inline-block;
+}
+    .image_test:hover > .overlay{
+        width:100%;
+        height:100%;
+        position:absolute;
+        background-color:#000;
+        opacity:0.5;
+    }
 
 /*++++++++++++++++++++++++++++
 ======== ADMIN PAGE =========
@@ -84,4 +217,37 @@ nav a {
 }
 .inline{
     display: inline-block;
+}
+
+
+/*++++++++++++++++++++++++++++
+======== MEDIA QUERIES =========
+++++++++++++++++++++++++++++*/
+@media only screen and (min-width: 100px) {
+
+    #welcome-text{ top: 10%;}
+    #welcome-text * {font-size: 1em;}
+    .rsvp-input-wrap{ width: 500px;}
+
+}
+
+@media only screen and (min-width: 500px) {
+
+    #welcome-text{ top: 15%;}
+    #welcome-text * {font-size: 2em;}
+
+}
+
+@media only screen and (min-width: 780px) {
+
+    #welcome-text{ top: 36%;}
+    #welcome-text * {font-size: 3em;}
+
+}
+
+@media only screen and (min-width: 900px) {
+
+    #welcome-text{ top: 50%;}
+    #welcome-text * {font-size: 5em;}
+
 }

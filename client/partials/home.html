@@ -1,19 +1,27 @@
-<div class="inviteeForm form-group">
-    <label for="firstName">First Name:</label>
-    <input class="form-control" type="text" name="firstName" ng-model='MC.newInvitee.firstName' >
-    <label for="lastName">Last Name:</label>
-    <input class="form-control" type="text" name="lastName" ng-model='MC.newInvitee.lastName' >
-    <!-- <label for="isSolo">Flyin Solo?</label>
-    <input class="form-check-input" type="checkbox" ng-change='MC.checked()' name="isSolo" ng-model='MC.newInvitee.isSolo' > -->
-    <div class="form-check">
-        <label class="form-check-label" for="">
-            <input type="checkbox" class='form-check-input' name="name" ng-change='MC.checked()' name="isSolo" ng-model='MC.newInvitee.hasPlus'>
-            Bringing a plus one?
-        </label>
+<div class="home">
+    <div id="banner-wrapper">
+        <img id="banner-img" src="{{HC.background}}" alt="">
+            <div id="welcome-text">
+                <h1 class="animated {{HC.anim}}" style="color: {{HC.text_color}}">{{HC.message}}</h1>
+            </div>
+        </img>
     </div>
-    <label ng-if='MC.isChecked' for="plusOneFirst">Plus One First Name:</label>
-    <input ng-if='MC.isChecked' class="form-control" type="text" name="plusOneFirst" ng-model='MC.newInvitee.firstNamePlus' >
-    <label ng-if='MC.isChecked' for="plusOneLast">Plus One Last Name:</label>
-    <input ng-if='MC.isChecked' class="form-control" type="text" name="plusOneLast" ng-model='MC.newInvitee.lastNamePlus' >
-    <button class="btn btn-primary" type="button" name="button" ng-click='MC.createInvitee()'>Add Invitee</button>
+    <div class="container">
+        <div class="contents">
+            <div class="jumbotron">
+                <div class="centered"><h3>Hello!</h3></div>
+                <hr>
+                <p>
+                    Welcome friends and family!  I would like to express my most sincere excitement to see all of you March 4th to help celebrate with Becca and me.  First and foremost, please RSVP, if you have not already.  If by whatever circumstances, you will not attend - do not be sad!  We still love you.  Secondly, Becca and I wish this wedding to be a party for all, with as few restriction on our guests as possible.  We will be providing information for the hotel at which we are staying, The Cosmopolitan; however, if there are other accommodations that work better for you, please choose them!  One of the things about Las Vegas that attracted us as a destination was the abundance of lodging options within a short distance.
+                </p>
+                <p>Cheers and blessed wishings from the groom and webmaster,</p>
+                <p>Devon</p>
+
+
+
+            </div>
+        </div>
+
+    </div>
 </div>
+{{HC}}
