@@ -2,7 +2,7 @@ server {
     listen 80;
     # server_name www.mcnewsom2017.com;  UNCOMMENT THIS LINE IF USING YOUR OWN DOMAIN
     location / {
-        proxy_pass http://172.31.17.116:3030;
+        proxy_pass http://172.31.16.166:3030;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -11,4 +11,4 @@ server {
     }
 }
 
-sudo ln -s /etc/nginx/sites-available/{{pname}} /etc/nginx/sites-enabled/{{pname}}
+sudo ln -s /etc/nginx/sites-available/mcnewsom.pem /etc/nginx/sites-enabled/mcnewsom.pem
