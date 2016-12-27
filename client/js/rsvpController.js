@@ -6,7 +6,7 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
         return fullName
     }
     RsvpFactory.index(function(query){
-        self.invitees = query;
+        self.invitees = query.data;
         self.results = self.invitees.map(getFullName);
     })
     self.noResults = false;
@@ -49,9 +49,10 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
             }
         }
         RsvpFactory.checkName(thisInv, function(query){
-            console.log(query);
-            self.thisPerson = query.person;
-            self.guestStatus = query.guestStatus;
+            console.log(thisInv, 'is thisInv');
+            console.log(query, 'is checkName query');
+            self.thisPerson = query.data.person;
+            self.guestStatus = query.data.guestStatus;
             console.log(self.thisPerson, 'is queried person');
         });
     }
@@ -65,8 +66,8 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
         } else {
             RsvpFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
                 console.log(query, 'is rsvp query');
-                if(query.Error){
-                    self.rsvpErr = query;
+                if(query.data.Error){
+                    self.rsvpErr = query.data;
                 }else{
                     $timeout(function(){
                         $location.url('/home')

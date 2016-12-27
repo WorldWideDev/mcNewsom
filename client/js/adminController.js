@@ -4,9 +4,9 @@ mcNewsom.controller('AdminController', function(AdminFactory, RsvpFactory, $loca
     if(pw !== 'asdf')
         $location.url('/home')
     AdminFactory.index(function(query){
-        self.responses = query;
+        self.responses = query.data;
     })
     AdminFactory.findNoResponse(function(query){
-        self.noResponse = query;
+        self.noResponse = query.data;
     })
 })
