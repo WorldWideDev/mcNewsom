@@ -131,6 +131,16 @@ nav a {
         -webkit-transition: all 1s;
         transition: all 1s;
     }
+    .reg-div:focus > .reg-link-overlay{
+        width:100%;
+        height:100%;
+        background-color:#000;
+        opacity:0.5;
+        display: inline-block;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
     .reg-link-overlay{
         width:100%;
         height:100%;
@@ -142,6 +152,13 @@ nav a {
         transition: all 1s;
     }
     .reg-div:hover > .reg-loc-title{
+        display: inline;
+        display: inline-block;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+    .reg-div:focus > .reg-loc-title{
         display: inline;
         display: inline-block;
         -moz-transition: all 1s;
@@ -217,6 +234,10 @@ nav a {
     #welcome-text{ top: 10%;}
     #welcome-text * {font-size: 1em;}
     .rsvp-input-wrap{ min-width: 100px;}
+    .reg-div{
+        width: 300px;
+        height: 300px;
+    }
 
 }
 
@@ -225,6 +246,10 @@ nav a {
     #welcome-text{ top: 15%;}
     #welcome-text * {font-size: 2em;}
     .rsvp-input-wrap{ min-width: 300px;}
+    .reg-div{
+        width: 300px;
+        height: 300px;
+    }
 
 }
 
@@ -233,6 +258,10 @@ nav a {
     #welcome-text{ top: 36%;}
     #welcome-text * {font-size: 3em;}
     .rsvp-input-wrap{ width: 400px;}
+    .reg-div{
+        width: 500px;
+        height: 500px;
+    }
 
 }
 
