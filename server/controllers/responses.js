@@ -23,10 +23,8 @@ module.exports = (function(){
                     if(invitee.hasRsvp){
                         res.json({"Error": "You have already RSVP'd!"})
                     }else{
-                        console.log(req.body.isPlusComing, 'is isPlusComing');
-
-                        // check to see if invitee has plus one that is sure of status, and then update both statuses
-                        if(invitee.hasPlus && req.body.isPlusComing !== "unsure"){
+                        // check to see if invitee has plus one and then update both statuses
+                        if(invitee.hasPlus){
                             Invitee.findOne({firstName: invitee.firstNamePlus, lastName: invitee.lastNamePlus}, function(err, guest){
                                 if(err){
                                     res.json(err);

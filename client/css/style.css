@@ -1,18 +1,36 @@
+:root{
+    --main-text-color: rgb(30, 244, 4);
+    --dark-text-color: rgb(45, 45, 45);
+}
+
 body{
     padding-top: 60px;
-    font-family: monospace;
+    font-family: 'Hammersmith One', sans-serif;
     background-color: rgb(55, 62, 62);
-    /*color: rgb(110, 184, 37);*/
 }
+    h1{
+        color: var(--main-text-color);
+    }
     .contents{
         margin-top: 30px;
     }
-    .contents > :not(span, input){
-        color: rgb(158, 255, 0);
+    .centered{
+        text-align: center;
     }
+    /*.contents > :not(span, input){
+        color: rgb(158, 255, 0);
+    }*/
     .important{
         font-weight: bold;
-        color: rgb(102, 58, 175);
+    }
+    .affirmative{
+        color: rgb(28, 156, 21);
+    }
+    .negative{
+        color: rgb(154, 45, 45);
+    }
+    .blue{
+        color: rgb(42, 53, 153);
     }
 
 /*++++++++++++++++++++++++++++
@@ -30,74 +48,14 @@ body{
     font-size: 160%;
 }
 nav a {
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     font-size: 110%;
     margin: 5px 5px;
 }
 
-/*.cl-effect-21 a {*/
-	/*padding: 10px;*/
-	/*color: #237546;
-	font-weight: 700;
-	text-shadow: none;
-	-webkit-transition: color 0.3s;
-	-moz-transition: color 0.3s;
-	transition: color 0.3s;
-}
-
-.cl-effect-21 a::before,
-.cl-effect-21 a::after {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background: #fff;
-	content: '';
-	opacity: 0;
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-	-webkit-transform: translateY(-10px);
-	-moz-transform: translateY(-10px);
-	transform: translateY(-10px);
-}
-
-.cl-effect-21 a::before {
-	top: 0;
-	-webkit-transform: translateY(-10px);
-	-moz-transform: translateY(-10px);
-	transform: translateY(-10px);
-}
-
-.cl-effect-21 a::after {
-	bottom: 0;
-	-webkit-transform: translateY(10px);
-	-moz-transform: translateY(10px);
-	transform: translateY(10px);
-}
-
-.cl-effect-21 a:hover,
-.cl-effect-21 a:focus {
-	color: #fff;
-}
-
-.cl-effect-21 a:hover::before,
-.cl-effect-21 a:focus::before,
-.cl-effect-21 a:hover::after,
-.cl-effect-21 a:focus::after {
-	opacity: 1;
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	transform: translateY(0px);
-}*/
-
-
 /*++++++++++++++++++++++++++++
 ========  HOME PAGE =======
 ++++++++++++++++++++++++++++*/
-.home > .container > .contents > .jumbotron * {
-    color: rgb(70, 70, 70);
-}
 
 #banner-wrapper{
     width: 100%;
@@ -116,9 +74,8 @@ nav a {
             font-weight:bold;
             text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         }
-
-.centered{
-    text-align: center;
+#devsmessage{
+    font-family: 'Permanent Marker', cursive;
 }
 
 /*++++++++++++++++++++++++++++
@@ -127,9 +84,16 @@ nav a {
 
 .rsvp-jumbo{
     background-color: #868686;
+    color: var(--main-text-color);
 }
     .rsvp-jumbo h1{
         margin: 0;
+    }
+    .rsvp *:not(.affirmative):not(.negative){
+        color: var(--dark-text-color);
+    }
+    .dark-jumbo-text{
+        color: var(--dark-text-color);
     }
 
 
@@ -137,17 +101,22 @@ nav a {
 /*++++++++++++++++++++++++++++
 ======== REGISTRY PAGE =======
 ++++++++++++++++++++++++++++*/
+.registry{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .reg-div{
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     display: inline-block;
     text-align: center;
-    background-size: cover;
+    margin: 10px;
 }
 .reg-loc-title{
     display: inline-block;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 3.2em;
     font-weight: bold;
     color: rgb(221, 221, 221);
     margin-top: 100px;
@@ -187,10 +156,15 @@ nav a {
 }
     #amazon{
         background: url('../img/amazon.jpg');
+        background-size: cover;
     }
     #surlatable{
         background: url('../img/table.jpg');
-
+        background-size: cover;
+    }
+    #macys{
+        background: url('../img/macys.jpg');
+        background-size: cover;
     }
     .reg-link a{
         text-decoration: none;
@@ -214,12 +188,13 @@ nav a {
 /*++++++++++++++++++++++++++++
 ======== ADMIN PAGE =========
 ++++++++++++++++++++++++++++*/
-.admin > *{
-    color: rgb(91, 254, 10);
+.admin *{
+    color: var(--main-text-color);
 }
-    .admin input{
-        color: blackrgb(78, 78, 78);
-    }
+
+.admin input{
+    color: rgb(78, 78, 78);
+}
 
 .admin-table-header{
     position: relative;

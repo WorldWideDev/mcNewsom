@@ -4,86 +4,96 @@
         <div class="jumbotron rsvp-jumbo">
             <div class="centered">
                 <h1>RSVP</h1>
-                <h2>Type your name, then hit enter</h2>
+                <h2 class="dark-jumbo-text">Type your name, then hit enter</h2>
             </div>
             <hr>
-            <div ng-if='MC.thisPerson.Error || MC.rsvpErr.Error' class="alert alert-danger">
-                {{MC.thisPerson.Error ? MC.thisPerson.Error : MC.rsvpErr.Error}}
-            </div>
-            <div class="rsvp-input-wrap"><input
-                placeholder="Name"
-                type="text"
-                ng-model="MC.candidate"
-                ng-keypress='($event.which === 13)?MC.checkInvitee():0'
-                typeahead-editable="true"
-                uib-typeahead="f for f in MC.results | filter:$viewValue | limitTo:8"
-                class="form-control" typeahead-min-length="1"
-                typeahead-no-results="noResults"
-            ></div>
-            <div ng-if="MC.thisPerson.firstName" class="form-group">
-                <h3>Hi {{MC.thisPerson.firstName}}!</h3>
-                <h4>Will you be joining us?</h4>
-                <div class="form-group">
-                    <label class="checkbox-inline">
-                        <input type="radio" name="isComing" ng-model='MC.rsvp.isComing' value="yes"> Yes
-                    </label>
-                    <label class="checkbox-inline">
-                        <input type="radio" name="isComing" ng-model='MC.rsvp.isComing' value="no"> No
-                    </label>
+            <div class="rsvp">
+                <div ng-if='MC.thisPerson.Error || MC.rsvpErr.Error' class="alert alert-danger">
+                    {{MC.thisPerson.Error ? MC.thisPerson.Error : MC.rsvpErr.Error}}
                 </div>
-                <div ng-if="MC.thisPerson.hasPlus && !MC.guestStatus" class="">
-                    <h4 ng-if='MC.thisPerson.hasPlus'>
-                        Will {{MC.thisPerson.firstNamePlus}} {{MC.thisPerson.lastNamePlus}} be attending?
-                    </h4>
-                    <div class="form-group">
-                        <label class="checkbox-inline">
-                            <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="yes"> Yes
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="no"> No
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="unsure"> Not Sure
-                        </label>
-                    </div>
-                    <p ng-if="MC.thisPerson.hasPlus && MC.rsvp.isPlusComing == 'unsure'">That's ok, just make sure they RSVP soon!</p>
+                <div class="rsvp-input-wrap"><input
+                    placeholder="Name"
+                    type="text"
+                    ng-model="MC.candidate"
+                    ng-keypress='($event.which === 13)?MC.checkInvitee():0'
+                    typeahead-editable="true"
+                    uib-typeahead="f for f in MC.results | filter:$viewValue | limitTo:8"
+                    class="form-control" typeahead-min-length="1"
+                    typeahead-no-results="noResults"
+                    ></div>
+                    <div ng-if="MC.thisPerson.firstName && !MC.thisPerson.hasRsvp" class="form-group">
+                        <h3>Hi {{MC.thisPerson.firstName}}!</h3>
+                        <h4>Will you be joining us?</h4>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="radio" name="isComing" ng-model='MC.rsvp.isComing' value="yes"> Yes
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="isComing" ng-model='MC.rsvp.isComing' value="no"> No
+                            </label>
+                        </div>
+                        <div ng-if="MC.thisPerson.hasPlus" class="">
+                            <h4 ng-if='MC.thisPerson.hasPlus'>
+                                Will {{MC.thisPerson.firstNamePlus}} {{MC.thisPerson.lastNamePlus}} be attending?
+                            </h4>
+                            <div class="form-group">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="yes"> Yes
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="no"> No
+                                </label>
+                                <!-- <label class="checkbox-inline">
+                                <input type="radio" name="isPlusComing" ng-model='MC.rsvp.isPlusComing' value="unsure"> Not Sure
+                            </label> -->
+                        </div>
 
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        RSVP
+                    </button>
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    RSVP
-                </button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">{{MC.thisPerson.firstName}} {{MC.thisPerson.lastName}}</h4>
-                        </div>
-                        <div class="modal-body">
-                            <h3>You have answered</h3>
-                            <h4>{{MC.rsvp.isComing}} to is coming</h4>
-                            <h4 ng-if="MC.thisPerson.hasPlus">{{MC.rsvp.isPlusComing}} to {{MC.thisPerson.firstNamePlus}} {{MC.thisPerson.lastNamePlus}} is coming</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" ng-click='MC.toRSVP()' data-dismiss='modal'>Submit</button>
+                <div ng-if='MC.thisPerson.hasRsvp == true && MC.thisPerson' class="has-rsvp">
+                    <h3>Hello {{MC.thisPerson.firstName}}, you have already RSVP'd.  Please contact us directly if your plans have changed</h3>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">{{MC.thisPerson.firstName}} {{MC.thisPerson.lastName}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h3>You have answered:</h3>
+
+                                <h4 ng-if='MC.rsvp.isComing == "yes"'><span class="important affirmative">{{MC.rsvp.isComing.toUpperCase();}}</span> you are coming!</h4>
+                                <h4 ng-if='MC.rsvp.isComing == "no"'><span class="important negative">{{MC.rsvp.isComing.toUpperCase();}}</span> you are not coming.</h4>
+                                <h4 ng-if="MC.thisPerson.hasPlus && MC.rsvp.isPlusComing == 'yes'"><span class="important affirmative">{{MC.rsvp.isPlusComing.toUpperCase();}}</span> {{MC.thisPerson.firstNamePlus}} {{MC.thisPerson.lastNamePlus}} is coming</h4>
+                                <h4 ng-if="MC.thisPerson.hasPlus && MC.rsvp.isPlusComing == 'no'"><span class="important negative">{{MC.rsvp.isPlusComing.toUpperCase();}}</span> {{MC.thisPerson.firstNamePlus}} {{MC.thisPerson.lastNamePlus}} is not coming</h4>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" ng-click='MC.toRSVP()' data-dismiss='modal'>Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-           <!-- <span ng-if="noResults" uib-dropdown uib-dropdown-toggle auto-close="disabled" is-open="true">
-              <ul class="uib-dropdown-menu" >
+                <!-- <span ng-if="noResults" uib-dropdown uib-dropdown-toggle auto-close="disabled" is-open="true">
+                <ul class="uib-dropdown-menu" >
                 <li><a href>no results</a></li>
-              </ul>
-            </span> -->
-            <button type="button" name="button" ng-click='MC.addPeople()'>ADD PEOPLE</button>
+                </ul>
+                </span> -->
+
+                <!-- <button type="button" name="button" ng-click='MC.addPeople()'>ADD PEOPLE</button> -->
+
+            </div>
         </div>
-        {{MC.rsvp}}
     </div>
 </div>
