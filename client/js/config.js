@@ -14,13 +14,23 @@ mcNewsom.config(function($routeProvider){
     })
     .when('/accomodations', {
         templateUrl: 'partials/accomodations.html',
-        controller: 'RsvpController',
-        controllerAs: 'AC'
+        controller: 'DefaultController',
+        controllerAs: 'DC'
     })
     .when('/registry', {
         templateUrl: 'partials/registry.html',
-        controller: 'RsvpController',
-        controllerAs: 'RC'
+        controller: 'DefaultController',
+        controllerAs: 'DC'
+    })
+    .when('/selfiez', {
+        templateUrl: 'partials/selfiez.html',
+        controller: 'DefaultController',
+        controllerAs: 'DC'
+    })
+    .when('/events', {
+        templateUrl: 'partials/events.html',
+        controller: 'DefaultController',
+        controllerAs: 'DC'
     })
     .when('/admin', {
         templateUrl: 'partials/admin.html',

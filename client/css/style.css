@@ -97,6 +97,21 @@ nav a {
     }
 
 
+/*++++++++++++++++++++++++++++
+======== SELFIEZ PAGE =======
+++++++++++++++++++++++++++++*/
+.selfiez{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.selfie{
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    background-size: cover;
+}
+
 
 /*++++++++++++++++++++++++++++
 ======== REGISTRY PAGE =======

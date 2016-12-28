@@ -1,5 +1,4 @@
 mcNewsom.controller('HomeController', function(RsvpFactory){
-    console.log("in home controller");
     self = this;
     self.background = '';
     (function randomBackground(){
