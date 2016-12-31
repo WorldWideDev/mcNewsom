@@ -214,6 +214,13 @@
             "lastNamePlus": "Harvey"
         },
         {
+            "firstName": "Maurice",
+            "lastName": "Harvey",
+            "hasPlus": true,
+            "firstNamePlus": "Theresa",
+            "lastNamePlus": "Harvey"
+        },
+        {
             "firstName": "Amy",
             "lastName": "Bancroft",
             "hasPlus": true,
@@ -313,6 +320,13 @@
             "lastNamePlus": "Dulguerov"
         },
         {
+            "firstName": "Maiya",
+            "lastName": "Dulguerov",
+            "hasPlus": true,
+            "firstNamePlus": "Nancy",
+            "lastNamePlus": "Newsom"
+        },
+        {
             "firstName": "Leilani",
             "lastName": "Dulguerov"
         },
@@ -348,7 +362,15 @@
             "firstName": "Kevin",
             "lastName": "Leonard",
             "hasPlus": true,
-            "firstNamePlus": "Nana"
+            "firstNamePlus": "Nana",
+            "lastNamePlus": "Leonard"
+        },
+        {
+            "firstName": "Nana",
+            "lastName": "Leonard",
+            "hasPlus": true,
+            "firstNamePlus": "Kevin",
+            "lastNamePlus": "Leonard"
         },
         {
             "firstName": "Max",

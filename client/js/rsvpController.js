@@ -52,7 +52,7 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
             console.log(thisInv, 'is thisInv');
             console.log(query, 'is checkName query');
             self.thisPerson = query.data.person;
-            self.guestStatus = query.data.guestStatus;
+            // self.guestStatus = query.data.guestStatus;
             console.log(self.thisPerson, 'is queried person');
         });
     }

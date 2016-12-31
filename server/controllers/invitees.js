@@ -71,8 +71,7 @@ module.exports = (function(){
                                 else{
                                     console.log('bout to return some json');
                                     res.json({
-                                        "person": person,
-                                        "guestStatus": guest.hasRsvp
+                                        "person": person
                                     });
                                 }
                             })
