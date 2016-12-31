@@ -123,11 +123,11 @@
             "lastName": "Frank",
             "hasPlus": true,
             "firstNamePlus": "Ryan",
-            "lastNamePlus": "Fitzsimmons"
+            "lastNamePlus": "Fitzsimons"
         },
         {
             "firstName": "Ryan",
-            "lastName": "Fitzsimmons",
+            "lastName": "Fitzsimons",
             "hasPlus": true,
             "firstNamePlus": "Lauren",
             "lastNamePlus": "Frank"
@@ -463,11 +463,11 @@
             "lastName": "Newsom",
             "hasPlus": true,
             "firstNamePlus": "Lee",
-            "lastNamePlus": "Zerilla"
+            "lastNamePlus": "Zerrilla"
         },
         {
             "firstName": "Lee",
-            "lastName": "Zerilla",
+            "lastName": "Zerrilla",
             "hasPlus": true,
             "firstNamePlus": "Caitlin",
             "lastNamePlus": "Newsom"
