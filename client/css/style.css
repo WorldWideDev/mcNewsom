@@ -1,6 +1,7 @@
 :root{
     --main-text-color: rgb(30, 244, 4);
     --dark-text-color: rgb(45, 45, 45);
+    --light-text-color: rgb(205, 205, 205);
 }
 
 body{
@@ -10,6 +11,10 @@ body{
 }
     h1{
         color: var(--main-text-color);
+    }
+    h2{
+        color: var(--light-text-color);
+        text-decoration: underline;
     }
     .contents{
         margin-top: 30px;
@@ -24,10 +29,10 @@ body{
         font-weight: bold;
     }
     .affirmative{
-        color: rgb(28, 156, 21);
+        color: var(--main-text-color);
     }
     .negative{
-        color: rgb(154, 45, 45);
+        color: rgb(212, 47, 47);
     }
     .blue{
         color: rgb(42, 53, 153);
@@ -218,8 +223,29 @@ nav a {
     }
 
 /*++++++++++++++++++++++++++++
+======== EVENT PAGE =========
+++++++++++++++++++++++++++++*/
+
+.event-desc{
+    color: var(--main-text-color);
+}
+
+/*++++++++++++++++++++++++++++
+=====  ACCOMODATIONS PAGE ====
+++++++++++++++++++++++++++++*/
+
+.accomodations p,li,h4,h5{
+    color: var(--light-text-color);
+}
+#map{
+    height: 200px;
+    width: 100%;
+}
+
+/*++++++++++++++++++++++++++++
 ======== ADMIN PAGE =========
 ++++++++++++++++++++++++++++*/
+
 .admin *{
     color: var(--main-text-color);
 }
