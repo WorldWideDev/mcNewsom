@@ -37,6 +37,9 @@ body{
     .blue{
         color: rgb(42, 53, 153);
     }
+    .time{
+        color: var(--light-text-color);
+    }
 
 /*++++++++++++++++++++++++++++
 ======== NAV BAR =============
@@ -99,6 +102,10 @@ nav a {
     }
     .dark-jumbo-text{
         color: var(--dark-text-color);
+    }
+    .stern-message{
+        font-style: italic;
+        color: var(--light-text-color);
     }
 
 
