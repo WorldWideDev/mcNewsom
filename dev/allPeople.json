@@ -45,6 +45,10 @@
             "lastName": "McClintock"
         },
         {
+            "firstName": "Julia",
+            "lastName": "McClintock"
+        },
+        {
             "firstName": "Dave",
             "lastName": "McClintock",
             "hasPlus": true,
@@ -147,7 +151,7 @@
             "lastNamePlus": "Leonard"
         },
         {
-            "firstName": "Alexanne",
+            "firstName": "Alexane",
             "lastName": "Potier",
             "hasPlus": true,
             "firstNamePlus": "Bill",
@@ -157,7 +161,7 @@
             "firstName": "Bill",
             "lastName": "Lowe",
             "hasPlus": true,
-            "firstNamePlus": "Alexanne",
+            "firstNamePlus": "Alexane",
             "lastNamePlus": "Potier"
         },
         {
@@ -170,11 +174,11 @@
         },
         {
             "firstName": "Margaret",
-            "lastName": "Quartarao"
+            "lastName": "Quartararo"
         },
         {
-            "firstName": "Parissa",
-            "lastName": "Sajjadi"
+            "firstName": "Parisa",
+            "lastName": "Sajaadi"
         },
         {
             "firstName": "Jonathan",
@@ -249,11 +253,11 @@
             "lastNamePlus": "Starnes"
         },
         {
-            "firstName": "Katie",
-            "lastName": "Newsom",
+            "firstName": "David",
+            "lastName": "Starnes",
             "hasPlus": true,
-            "firstNamePlus": "David",
-            "lastNamePlus": "Starnes"
+            "firstNamePlus": "Katie",
+            "lastNamePlus": "Newsom"
         },
         {
             "firstName": "Jenna",
@@ -278,11 +282,11 @@
             "lastName": "Newsom",
             "hasPlus": true,
             "firstNamePlus": "Tracy",
-            "lastNamePlus": "Rosenthaul-Newsom"
+            "lastNamePlus": "Rosenthal-Newsom"
         },
         {
             "firstName": "Tracy",
-            "lastName": "Rosenthaul-Newsom",
+            "lastName": "Rosenthal-Newsom",
             "hasPlus": true,
             "firstNamePlus": "Dan",
             "lastNamePlus": "Newsom"
@@ -306,11 +310,11 @@
             "lastName": "Newsom",
             "hasPlus": true,
             "firstNamePlus": "Maiya",
-            "lastNamePlus": "Dulgerov"
+            "lastNamePlus": "Dulguerov"
         },
         {
             "firstName": "Leilani",
-            "lastName": "Dulgerov"
+            "lastName": "Dulguerov"
         },
         {
             "firstName": "Bowman",

@@ -8,18 +8,14 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Plus One</th>
                     <th>Is Coming</th>
-                    <th>Plus One Is Coming</th>
                     <th>Date Responded</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat='r in AC.responses | filter:searchTextA'>
                     <td>{{r._invitee.firstName}} {{r._invitee.lastName}}</td>
-                    <td>{{r._invitee.hasPlus ? r._invitee.firstNamePlus + " " + r._invitee.lastNamePlus : ""}}</td>
                     <td>{{r.isComing}}</td>
-                    <td>{{r.isPlusComing}}</td>
                     <td>{{r.createdAt | date : "MM/dd/yyyy 'at' h:mma" }}</td>
                 </tr>
             </tbody>
@@ -33,13 +29,11 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Plus One</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat='n in AC.noResponse | filter:searchTextB'>
                     <td>{{n.firstName}} {{n.lastName}}</td>
-                    <td>{{n.hasPlus ? n.firstNamePlus + " " + n.lastNamePlus : ""}}</td>
                 </tr>
             </tbody>
         </table>
