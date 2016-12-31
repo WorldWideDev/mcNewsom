@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     Invitee = mongoose.model('Invitee'),
-    headz = require('../allPeople.json');
+    headz = require('../allPeopleTest.json');
 
 function createThem(){
     console.log(headz, 'is heads');
