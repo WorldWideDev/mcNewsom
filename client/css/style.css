@@ -10,10 +10,10 @@ body{
     background-color: rgb(55, 62, 62);
 }
     h1{
-        color: var(--main-text-color);
+        color: rgb(30, 244, 4);
     }
     h2{
-        color: var(--light-text-color);
+        color: rgb(205, 205, 205);
         text-decoration: underline;
     }
     .contents{
@@ -29,7 +29,7 @@ body{
         font-weight: bold;
     }
     .affirmative{
-        color: var(--main-text-color);
+        color: rgb(30, 244, 4);
     }
     .negative{
         color: rgb(212, 47, 47);
@@ -38,7 +38,7 @@ body{
         color: rgb(42, 53, 153);
     }
     .time{
-        color: var(--light-text-color);
+        color: rgb(205, 205, 205);
     }
 
 /*++++++++++++++++++++++++++++
@@ -92,20 +92,20 @@ nav a {
 
 .rsvp-jumbo{
     background-color: #868686;
-    color: var(--main-text-color);
+    color: rgb(30, 244, 4);
 }
     .rsvp-jumbo h1{
         margin: 0;
     }
     .rsvp *:not(.affirmative):not(.negative){
-        color: var(--dark-text-color);
+        color: rgb(45, 45, 45);
     }
     .dark-jumbo-text{
-        color: var(--dark-text-color);
+        color: rgb(45, 45, 45);
     }
     .stern-message{
         font-style: italic;
-        color: var(--light-text-color);
+        color: rgb(205, 205, 205);
     }
 
 
@@ -234,7 +234,7 @@ nav a {
 ++++++++++++++++++++++++++++*/
 
 .event-desc{
-    color: var(--main-text-color);
+    color: rgb(30, 244, 4);
 }
 
 /*++++++++++++++++++++++++++++
@@ -242,7 +242,7 @@ nav a {
 ++++++++++++++++++++++++++++*/
 
 .accomodations p,li,h4,h5{
-    color: var(--light-text-color);
+    color: rgb(205, 205, 205);
 }
 #map{
     height: 200px;
@@ -254,7 +254,7 @@ nav a {
 ++++++++++++++++++++++++++++*/
 
 .admin *{
-    color: var(--main-text-color);
+    color: rgb(30, 244, 4);
 }
 
 .admin input{

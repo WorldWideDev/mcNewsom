@@ -1,5 +1,4 @@
 mcNewsom.controller('DefaultController', function(DefaultFactory){
-    console.log('in default controller');
     self = this;
     self.selfiez = [
         {background: "url('/img/selfiez/IMG_01.jpg')"},
