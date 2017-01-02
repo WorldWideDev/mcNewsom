@@ -2,5 +2,5 @@ Wedding site for Becca and Devon (that's me!).  Non-tradish wedding, gets non-tr
 
 Main technologies:
  - MEAN stack
- - angular-ui for autocompletion in rsvp (uib typahead)
+ - angular-ui for autocompletion in rsvp (uib typeahead)
  - animate.css for home page antics

@@ -1,4 +1,4 @@
-mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout){
+mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout, $uibModal){
     self = this;
     self.results = [];
     function getFullName(item, idx){
@@ -19,17 +19,14 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
         });
     }
     self.checked = function(){
-        console.log('checked func fired');
         self.isChecked = self.newInvitee.hasPlus;
     }
     self.checkInvitee = function(){
-        console.log('checking...', self.candidate);
         var arr = self.candidate.split(' '),
             thisInv = {
                 firstName: arr[0],
                 lastName: arr[1]
             }
-        console.log(arr, thisInv);
         // if multiple names are found, split in to firstName as first array item, and rest of array as lastName
         // this doesn't work for multiple first names, but i know the data so its cool!
         if(arr.length > 2){
@@ -37,7 +34,6 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
             for (var i = 1; i < arr.length; i++) {
                 i === 1 ? str += arr[i] : str += ' ' + arr[i];
             }
-            console.log(str);
             thisInv = {
                 firstName: arr[0],
                 lastName: str
@@ -49,36 +45,40 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout)
             }
         }
         RsvpFactory.checkName(thisInv, function(query){
-            console.log(thisInv, 'is thisInv');
-            console.log(query, 'is checkName query');
-            self.thisPerson = query.data.person;
-            // self.guestStatus = query.data.guestStatus;
-            console.log(self.thisPerson, 'is queried person');
+            self.thisPerson = query.data.person;;
         });
     }
-    self.toRSVP = function(){
-
+    self.validate = function(){
+        self.isValid = false;
         // validations
         if(!self.rsvp){
+            self.isValid = false;
             self.rsvpErr = {"Error": "Please fill out all fields"};
         } else if ((self.thisPerson.hasPlus && !self.rsvp.isPlusComing) || !self.rsvp.isComing) {
             self.rsvpErr = {"Error": "Please fill out all fields"};
+            self.isValid = false;
         } else {
-            RsvpFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
-                console.log(query, 'is rsvp query');
-                if(query.data.Error){
-                    self.rsvpErr = query.data;
-                }else{
-                    $timeout(function(){
-                        $location.url('/home')
-                    },200)
-                }
-            })
+            self.rsvpErr = {};
+            self.isValid = true;
         }
+
+    }
+
+    self.toRSVP = function(){
+        RsvpFactory.toRSVP(self.thisPerson._id, self.rsvp, function(query){
+            if(query.data.Error){
+                self.rsvpErr = query.data;
+            }else{
+                $timeout(function(){
+                    $location.url('/home/' + 1)
+                },200)
+            }
+        })
 
     }
     self.addPeople = function(){
         RsvpFactory.addPeople();
     }
+
 
 })

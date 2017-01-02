@@ -7,6 +7,11 @@ mcNewsom.config(function($routeProvider){
         controller: 'HomeController',
         controllerAs: 'HC'
     })
+    .when('/home/:id', {
+        templateUrl: 'partials/home.html',
+        controller: 'HomeController',
+        controllerAs: 'HC'
+    })
     .when('/rsvp', {
         templateUrl: 'partials/rsvp.html',
         controller: 'RsvpController',

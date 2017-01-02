@@ -1,4 +1,4 @@
-mcNewsom.controller('HomeController', function(RsvpFactory){
+mcNewsom.controller('HomeController', function(RsvpFactory, $routeParams){
     self = this;
     self.background = '';
     (function randomBackground(){
@@ -18,26 +18,27 @@ mcNewsom.controller('HomeController', function(RsvpFactory){
 
         }
     })();
-    (function randomMessage(){
-        switch (getRandomInt(1,6)) {
-            case 1:
-                self.message = "#BLESSED";
-                break;
-            case 2:
-                self.message = "#BASED";
-                break;
-            case 3:
-                self.message = "#FAMLY";
-                break;
-            case 4:
-                self.message = "#VEGAS";
-                break;
-            case 5:
-                self.message = "#JOIN US";
-                break;
+    $routeParams.id ? self.message = "Thanks for RSVP!" :
+        (function randomMessage(){
+            switch (getRandomInt(1,6)) {
+                case 1:
+                    self.message = "#BLESSED";
+                    break;
+                case 2:
+                    self.message = "#BASED";
+                    break;
+                case 3:
+                    self.message = "#FAMLY";
+                    break;
+                case 4:
+                    self.message = "#VEGAS";
+                    break;
+                case 5:
+                    self.message = "#JOIN US";
+                    break;
 
-        }
-    })();
+            }
+        })();
     (function randomAnim(){
         switch (getRandomInt(1,6)) {
             case 1:
