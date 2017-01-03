@@ -158,7 +158,7 @@ nav a {
         -webkit-transition: all 1s;
         transition: all 1s;
     }
-    .reg-div:focus > .reg-link-overlay{
+    /*.reg-div:focus > .reg-link-overlay{
         width:100%;
         height:100%;
         background-color:#000;
@@ -167,7 +167,7 @@ nav a {
         -moz-transition: all 1s;
         -webkit-transition: all 1s;
         transition: all 1s;
-    }
+    }*/
     .reg-link-overlay{
         width:100%;
         height:100%;
@@ -185,13 +185,13 @@ nav a {
         -webkit-transition: all 1s;
         transition: all 1s;
     }
-    .reg-div:focus > .reg-loc-title{
+    /*.reg-div:focus > .reg-loc-title{
         display: inline;
         display: inline-block;
         -moz-transition: all 1s;
         -webkit-transition: all 1s;
         transition: all 1s;
-    }
+    }*/
 .reg-link{
     text-align: center;
     width: inherit;
