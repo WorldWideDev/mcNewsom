@@ -5,11 +5,6 @@ mcNewsom.factory('RsvpFactory', function($http, $uibModal){
             callback(meow);
         })
     }
-    factory.create = function(newInvitee, callback){
-        $http.post('invitees/create', newInvitee).then(function(meow){
-            callback(meow);
-        });
-    }
     factory.checkName = function(thisInv, callback){
         $http.post('invitees/checkName', thisInv).then(function(meow){
             callback(meow);

@@ -11,13 +11,6 @@ mcNewsom.controller('RsvpController', function(RsvpFactory, $location, $timeout,
     })
     self.noResults = false;
     self.candidate = '';
-    self.createInvitee = function(){
-        RsvpFactory.create(self.newInvitee, function(query){
-            self.invitees = query;
-            self.newInvitee = '';
-            self.isChecked = false;
-        });
-    }
     self.checked = function(){
         self.isChecked = self.newInvitee.hasPlus;
     }
